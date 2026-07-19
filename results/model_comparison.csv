@@ -1,0 +1,1 @@
+model_name,pixel_accuracy,macro_precision,macro_recall,macro_specificity,macro_dice,macro_iou,micro_precision,micro_recall,micro_dice,micro_iou,evaluated_pixels,trainable_parameters,inference_seconds_per_image,tta_enabled

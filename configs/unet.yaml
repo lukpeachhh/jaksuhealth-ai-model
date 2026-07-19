@@ -1,0 +1,53 @@
+project:
+  name: JaksuHealth
+  experiment_name: unet
+
+seed: 42
+
+data:
+  split_dir: data/AMD-SD_Split
+  train_split: train
+  val_split: val
+  test_split: test
+  image_height: 384
+  image_width: 576
+  use_retina_crop: true
+  crop_margin: 30
+  preload: false
+  num_workers: 4
+  pin_memory: true
+
+model:
+  architecture: unet
+  encoder_name: efficientnet-b3
+  encoder_weights: imagenet
+  in_channels: 1
+  num_classes: 6
+
+loss:
+  name: focal_tversky
+  focal_gamma: 2.0
+  focal_weight: 1.0
+  tversky_weight: 1.0
+  tversky_alpha: 0.3
+  tversky_beta: 0.7
+  ignore_index: 255
+  include_background_in_tversky: false
+  class_weights: [0.05, 0.19, 0.19, 0.19, 0.19, 0.19]
+
+training:
+  output_dir: results/runs/unet
+  batch_size: 8
+  epochs: 60
+  accumulation_steps: 2
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  min_learning_rate: 0.000001
+  patience: 15
+  monitor: macro_iou
+  gradient_clip_norm: 1.0
+  mixed_precision: true
+
+evaluation:
+  use_tta: true
+  save_samples: 8

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Private or large data
+data/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.zip
+
+# Runtime outputs
+results/runs/
+results/prediction/
+wandb/
+runs/
+
+# Medical/patient exports
+AMD-SD_Patients/
+AMD-SD_Split/
+All_Patients_Results/
+Patients_Segmentation_Data/
+
+# Kaggle credentials
+kaggle.json
+.kaggle/
